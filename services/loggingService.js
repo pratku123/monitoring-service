@@ -46,7 +46,7 @@ module.exports = class LoggingService {
             let count = 0;
             let logs = [];
             new Promise(
-                async(resolve, reject)=> {
+                async(resolve, reject) => {
                     readlineObject.on('line', (line) => {
                         count++;
                         if(this.searchKeyWord && line.includes(searchKeyWord)>=0) {
