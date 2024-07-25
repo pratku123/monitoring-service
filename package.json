@@ -17,6 +17,8 @@
   },
   "homepage": "https://github.com/pratku123/monitoring-service#readme",
   "dependencies": {
-    "express": "^4.19.2"
+    "cors": "^2.8.5",
+    "express": "^4.19.2",
+    "express-async-handler": "^1.2.0"
   }
 }
