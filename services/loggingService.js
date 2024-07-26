@@ -19,7 +19,7 @@ module.exports = class LoggingService {
     async createLogs(res) {
         let contents = [];
         let content = "";
-        for (let i=0; i<this.numberOfLogs; i++) {
+        for (let i = 0; i < this.numberOfLogs; i++) {
             content = new Date().toLocaleTimeString() + " ----" + i + 
                     " https://localhost/test-url-" + i + "\n";
             await fs.writeFileSync(this.logFileName, content, {flag: 'a'}, err => {
@@ -49,8 +49,10 @@ module.exports = class LoggingService {
                 async(resolve, reject) => {
                     readlineObject.on('line', (line) => {
                         count++;
-                        if(this.searchKeyWord && line.includes(searchKeyWord)>=0) {
-                            logs.push(line);
+                        if(searchKeyWord) {
+                            if (line.includes(searchKeyWord)) {
+                                logs.push(line);
+                            }
                         } else {
                             logs.push(line);
                         }
@@ -68,7 +70,9 @@ module.exports = class LoggingService {
                     start = logs.length - 1;
                 }
                 end = start - this.numberOfLogs + 1;
-
+                if(end<0) {
+                    end = 0;
+                }
                 if(rev && (rev == -1) && startIndex) {
                     start = parseInt(startIndex) + parseInt(this.numberOfLogs);
                     end = parseInt(startIndex) + 1;

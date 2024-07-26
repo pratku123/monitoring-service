@@ -7,7 +7,7 @@
 # Available APIs 
 1. Create Logs API: http://localhost:3000/logs/createLogs?logFileName=abc&numberOfLogs=1000
    API to create test data in a sample log file.
-   Parameters: logFileName, numberOfLogs
+   Parameters: logFileName, numberOfLogs.
    This API appends the numberOfLogs logs to the end of the file, even if the file already exists.
 2. Get Logs API: http://localhost:3000/logs/createLogs?logFileName=abc&numberOfLogs=1000&startIndex=1000&endIndex=901&rev=-1
     API to get logs from a given log file located in /var/logs/
